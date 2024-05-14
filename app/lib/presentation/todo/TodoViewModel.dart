@@ -13,7 +13,7 @@ class TodoViewModel with ChangeNotifier {
     if(keyword.isEmpty){
       todos = originalTodos;
     }else{
-      todos = todos.where((value) => value.name.toLowerCase().contains(keyword)).toList();
+      todos = todos.where((value) => value.name.toLowerCase().contains(keyword.toLowerCase())).toList();
     }
     notifyListeners();
   }
@@ -23,7 +23,7 @@ class TodoViewModel with ChangeNotifier {
       required Function(String error) onError}) {
     todoListRepository.getAllTodos(onSuccess: (todos) {
       this.todos = todos;
-      this.originalTodos = todos;
+      originalTodos = todos;
       debugPrint("TODO_LIST $todos");
       notifyListeners();
     }, onError: (error) {

@@ -1,12 +1,12 @@
-
 import 'package:app/model/todo/Todo.dart';
+import 'package:app/presentation/di.dart';
 import 'package:app/presentation/todo/TodoViewModel.dart';
 import 'package:app/theme/AppColors.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toastification/toastification.dart';
-
 
 class TodoListScreen extends StatefulWidget {
   const TodoListScreen({super.key});
@@ -27,7 +27,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
       debugPrint("INIT_STATE ");
       getTodos();
     });
-    searchInputController.addListener((){
+    searchInputController.addListener(() {
       viewModel.filterTodo(searchInputController.text);
     });
   }
@@ -66,8 +66,8 @@ class _TodoListScreenState extends State<TodoListScreen> {
                   todos: todos,
                   onEditTodo: (todo) async {
                     debugPrint("NAVI $todo");
-                   await context.push("/todoList/new",extra: {"todo" : todo});
-                   getTodos();
+                    await context.push("/todoList/new", extra: {"todo": todo});
+                    getTodos();
                   },
                   deleteTodo: (id) {
                     viewModel.deleteTodo(
@@ -103,6 +103,16 @@ class _TodoListScreenState extends State<TodoListScreen> {
         ),
       ),
       appBar: AppBar(
+        centerTitle: false,
+        actions: [
+          IconButton(
+              onPressed: () {
+                getIt.get<SharedPreferences>().remove("token");
+                getIt.get<SharedPreferences>().remove("loggedIn");
+                context.go("/");
+              },
+              icon: const Icon(Icons.logout))
+        ],
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
