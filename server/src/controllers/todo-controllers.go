@@ -59,7 +59,7 @@ func GetAllTodos(context *gin.Context) {
 
 	fmt.Println("UserId ", userId)
 
-	result := db.Find(&todos, "user_id = ?", userId)
+	result := db.Order("created_at").Find(&todos, "user_id = ?", userId)
 
 	if result.Error != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": "Error getting data " + result.Error.Error()})

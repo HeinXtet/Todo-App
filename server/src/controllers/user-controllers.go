@@ -63,6 +63,7 @@ func Login(context *gin.Context) {
 	}
 
 	if err := context.Bind(&body); err != nil {
+		fmt.Println("BODY ", body)
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -75,6 +76,7 @@ func Login(context *gin.Context) {
 		context.JSON(http.StatusBadRequest, gin.H{
 			"error": "Invalid email or password",
 		})
+		return
 	}
 
 	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(body.Password))

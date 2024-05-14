@@ -1,0 +1,19 @@
+{
+  "helloWorld": "Hello World!",
+  "manage_your" :"Manage Your",
+  "daily_todo" : "Daily Todo",
+  "onboarding_desc" : "You can save all of your memories and schedules in only that place. That make you save the time and also make you to be more confidences.",
+  "welcome" : "Welcome",
+  "signup_desc" : "Let’s help you meet at your task",
+  "register_title" : "Register Here",
+  "enter_name" : "Enter your name",
+  "enter_email" : "Enter your email",
+  "create_password" : "Create your password",
+  "confirm_password" : "Confirm your password",
+  "register" : "Register",
+  "have_account_desc" : "Already have an account?",
+  "sign_in" : "Sign in",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  }
+}
