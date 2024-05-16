@@ -24,7 +24,7 @@ Project has 2 folders, one is for server using Go lang to generate API for Frond
 *   MVC patteren 
 *   etc. 
 
-##  Tech Stacks For Server
+##  Tech Stacks For Mobile
 
 * http for networking [Link](https://pub.dev/packages/http)
 * Jsonserializable for json builder [Link](https://pub.dev/packages/json_serializable)
