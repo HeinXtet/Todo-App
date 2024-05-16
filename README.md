@@ -33,3 +33,19 @@ Project has 2 folders, one is for server using Go lang to generate API for Frond
 * Go Router for navigation [Link](https://pub.dev/packages/go_router)
 * etc.
 
+## Instruction To Run
+
+### Server
+
+1. Install MySql in your mechine
+2.  Clone repository  
+3. In terminal -> `cd server` enter `go mod tidy` wait to install depedencies.
+4. After that `go run .` then the server will listen on port 3333, in localhost `http://localhost:3333`
+
+### Mobile
+
+1. Install Flutter and setup Flutter SDK configuration
+2. Clone repository and open the app folder
+3. `Flutter pug get`
+4. `Flutter run`
+
